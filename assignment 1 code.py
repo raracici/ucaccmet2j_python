@@ -1,6 +1,6 @@
 # setting up appropriate data structure
 rainfall = {}
-with open("python assignment\stations.csv") as file:
+with open("stations.csv") as file:
     columns = file.readline()
     for line in file:
         station = line.strip().split(",")
@@ -15,7 +15,7 @@ with open("python assignment\stations.csv") as file:
 
 # importing data from datafile
 import json
-with open("python assignment\precipitation.json") as file:
+with open("precipitation.json") as file:
     data = json.load(file)
 
 # defining relevant variables and sorting data per month in Seattle
@@ -28,5 +28,5 @@ for measurement in data:
             rainfall["Seattle"]["totalMonthlyPrecipitation"][int(month - 1)] += int(measurement["value"]) # adding value into monthly measurement
 
 # saving results for assignment 1
-with open("python assignment/result1.json", "w") as file:
+with open("result1.json", "w") as file:
     json.dump(rainfall, file)

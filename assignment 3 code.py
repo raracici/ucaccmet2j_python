@@ -1,6 +1,6 @@
 # setting up appropriate data structure
 rainfall = {}
-with open("python assignment\stations.csv") as file:
+with open("stations.csv") as file:
     columns = file.readline()
     for line in file:
         station = line.strip().split(",")
@@ -16,7 +16,7 @@ totalprecipitation = 0 # for calculating relativeYearlyPrecipitation
 
 # importing data from datafile
 import json
-with open("python assignment\precipitation.json") as file:
+with open("precipitation.json") as file:
     data = json.load(file)
 
 # creating loop calculating statistics for each location
@@ -37,5 +37,5 @@ for location in "Cincinnati", "Seattle", "Maui", "San Diego":
     rainfall[location]["relativeYearlyPrecipitation"] = rainfall[location]["totalYearlyPrecipitation"]/totalprecipitation
 
 # saving results for assignment 3
-with open("python assignment/result3.json", "w") as file:
+with open("result3.json", "w") as file:
     json.dump(rainfall, file)
